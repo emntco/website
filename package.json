@@ -19,6 +19,7 @@
     "start": "cross-env NODE_OPTIONS=--no-deprecation next start"
   },
   "dependencies": {
+    "@next/third-parties": "^15.0.3",
     "@payloadcms/db-vercel-postgres": "latest",
     "@payloadcms/email-resend": "^3.1.0",
     "@payloadcms/live-preview-react": "latest",
