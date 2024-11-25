@@ -6,20 +6,39 @@ import { useTheme } from '..'
 import { themeLocalStorageKey } from '../shared'
 import { getImplicitPreference } from '../shared'
 
-// Style props for animated SVG elements
-interface AnimatedSvgStyleProps {
+// Base animated style props
+interface AnimatedStyleProps {
   transform?: SpringValue<string>
-  cursor?: string
   opacity?: SpringValue<number>
 }
 
-// Props for animated SVG elements
-interface AnimatedSvgProps extends React.SVGProps<SVGSVGElement> {
-  style?: AnimatedSvgStyleProps
+// SVG specific animated props
+interface AnimatedSvgProps {
+  xmlns?: string
+  width?: string | number
+  height?: string | number
+  viewBox?: string
+  fill?: string
+  strokeWidth?: string | number
+  strokeLinecap?: 'round' | 'butt' | 'square'
+  strokeLinejoin?: 'round' | 'bevel' | 'miter'
+  stroke?: string
+  style?: AnimatedStyleProps & {
+    cursor?: string
+  }
+  className?: string
+  onClick?: () => void
+  onDoubleClick?: () => void
+  children?: React.ReactNode
 }
 
-// Props for animated circle
-interface AnimatedCircleProps extends React.SVGProps<SVGCircleElement> {
+// Circle specific animated props
+interface AnimatedCircleProps {
+  cx?: string | number
+  cy?: string | number
+  r?: string | number
+  fill?: string
+  mask?: string
   style?: {
     r?: SpringValue<number>
     cx?: SpringValue<string>
@@ -27,11 +46,13 @@ interface AnimatedCircleProps extends React.SVGProps<SVGCircleElement> {
   }
 }
 
-// Props for animated group
-interface AnimatedGProps extends React.SVGProps<SVGGElement> {
+// Group specific animated props
+interface AnimatedGProps {
+  stroke?: string
   style?: {
     opacity?: SpringValue<number>
   }
+  children?: React.ReactNode
 }
 
 const properties = {
@@ -68,7 +89,6 @@ const properties = {
   springConfig: { mass: 1, tension: 200, friction: 30 },
 }
 
-// Create properly typed animated components
 const AnimatedSvg = animated.svg as unknown as React.FC<AnimatedSvgProps>
 const AnimatedCircle = animated.circle as unknown as React.FC<AnimatedCircleProps>
 const AnimatedG = animated.g as unknown as React.FC<AnimatedGProps>
@@ -91,31 +111,23 @@ export const ThemeToggle: React.FC = () => {
   }, [theme])
 
   const svgContainerProps = useSpring({
-    to: {
-      transform: properties[isDark ? 'dark' : 'light'].svg.transform,
-    },
+    transform: properties[isDark ? 'dark' : 'light'].svg.transform,
     config: properties.springConfig,
   })
 
   const centerCircleProps = useSpring({
-    to: {
-      r: properties[isDark ? 'dark' : 'light'].circle.r,
-    },
+    r: properties[isDark ? 'dark' : 'light'].circle.r,
     config: properties.springConfig,
   })
 
   const maskedCircleProps = useSpring({
-    to: {
-      cx: properties[isDark ? 'dark' : 'light'].mask.cx,
-      cy: properties[isDark ? 'dark' : 'light'].mask.cy,
-    },
+    cx: properties[isDark ? 'dark' : 'light'].mask.cx,
+    cy: properties[isDark ? 'dark' : 'light'].mask.cy,
     config: properties.springConfig,
   })
 
   const linesProps = useSpring({
-    to: {
-      opacity: properties[isDark ? 'dark' : 'light'].lines.opacity,
-    },
+    opacity: properties[isDark ? 'dark' : 'light'].lines.opacity,
     config: properties.springConfig,
   })
 
