@@ -1,6 +1,6 @@
-# Payload Website Template
+# emnt.co
 
-This is the official [Payload Website Template](https://github.com/payloadcms/payload/blob/main/templates/website). Use it to power websites, blogs, or portfolios from small to enterprise. This repo includes a fully-working backend, enterprise-grade admin panel, and a beautifully designed, production-ready website.
+This website was bootstrapped with the [Payload Website Template](https://github.com/payloadcms/payload/blob/main/templates/website). This repo includes a fully-working backend, enterprise-grade admin panel, and a production-ready website.
 
 You can deploy to Vercel, using Neon and Vercel Blob Storage with one click:
 
@@ -182,7 +182,3 @@ The seed script will also create a demo user for demonstration purposes only:
   - Password: `password`
 
 > NOTICE: seeding the database is destructive because it drops your current database to populate a fresh one from the seed template. Only run this command if you are starting a new project or can afford to lose your current data.
-
-## Questions
-
-If you have any issues or questions, reach out to us on [Discord](https://discord.com/invite/payload) or start a [GitHub discussion](https://github.com/payloadcms/payload/discussions).

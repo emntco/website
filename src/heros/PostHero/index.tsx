@@ -11,8 +11,8 @@ export const PostHero: React.FC<{
   const { categories, meta: { image: metaImage } = {}, populatedAuthors, publishedAt, title } = post
 
   return (
-    <div className="relative -mt-[10.4rem] flex items-end">
-      <div className="container z-10 relative lg:grid lg:grid-cols-[1fr_48rem_1fr] text-white pb-8">
+    <div className="relative -mt-[10.4rem] flex items-end bg-gradient-to-b from-transparent to-white dark:to-black">
+      <div className="container z-10 relative lg:grid lg:grid-cols-[1fr_48rem_1fr] text-black dark:text-white pb-8">
         <div className="col-start-1 col-span-1 md:col-start-2 md:col-span-2">
           <div className="uppercase text-sm mb-6">
             {categories?.map((category, index) => {
@@ -81,7 +81,7 @@ export const PostHero: React.FC<{
         {metaImage && typeof metaImage !== 'string' && (
           <Media fill imgClassName="-z-10 object-cover" resource={metaImage} />
         )}
-        <div className="absolute pointer-events-none left-0 bottom-0 w-full h-1/2 bg-gradient-to-t from-black to-transparent" />
+        <div className="absolute pointer-events-none left-0 bottom-0 w-full h-1/2" />
       </div>
     </div>
   )
