@@ -76,7 +76,7 @@ export default buildConfig({
     outputFile: path.resolve(dirname, 'payload-types.ts'),
   },
   email: resendAdapter({
-    defaultFromAddress: 'media@emnt.co',
+    defaultFromAddress: 'postmaster@mail.emnt.co',
     defaultFromName: 'EMINENT MEDIA LLC',
     apiKey: process.env.RESEND_API_KEY || '',
   }),

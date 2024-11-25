@@ -4,8 +4,6 @@ import { cn } from 'src/utilities/cn'
 import { GeistMono } from 'geist/font/mono'
 import { GeistSans } from 'geist/font/sans'
 import React from 'react'
-import { Analytics } from "@vercel/analytics/react"
-import { SpeedInsights } from "@vercel/speed-insights/next"
 import { GoogleAnalytics } from '@next/third-parties/google'
 
 import { AdminBar } from '@/components/AdminBar'
@@ -42,8 +40,6 @@ export default async function RootLayout({ children }: { children: React.ReactNo
           {children}
           <Footer />
         </Providers>
-        <Analytics />
-        <SpeedInsights />
         <GoogleAnalytics gaId="G-GSQERVK7QN" />
       </body>
     </html>
