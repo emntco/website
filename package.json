@@ -21,7 +21,7 @@
   "dependencies": {
     "@next/third-parties": "^15.0.3",
     "@payloadcms/db-vercel-postgres": "latest",
-    "@payloadcms/email-resend": "^3.1.0",
+    "@payloadcms/email-resend": "^3.1.1",
     "@payloadcms/live-preview-react": "latest",
     "@payloadcms/next": "latest",
     "@payloadcms/payload-cloud": "latest",
