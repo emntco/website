@@ -55,6 +55,10 @@ interface AnimatedGProps {
   children?: React.ReactNode
 }
 
+interface ThemeToggleProps {
+  maskId?: string
+}
+
 const properties = {
   dark: {
     circle: {
@@ -93,7 +97,9 @@ const AnimatedSvg = animated.svg as unknown as React.FC<AnimatedSvgProps>
 const AnimatedCircle = animated.circle as unknown as React.FC<AnimatedCircleProps>
 const AnimatedG = animated.g as unknown as React.FC<AnimatedGProps>
 
-export const ThemeToggle: React.FC = () => {
+export const ThemeToggle: React.FC<ThemeToggleProps> = ({ 
+  maskId = "theme-toggle-mask" 
+}) => {
   const { setTheme, theme } = useTheme()
   const [isAuto, setIsAuto] = useState(true)
   const [isDark, setIsDark] = useState(false)
@@ -172,7 +178,7 @@ export const ThemeToggle: React.FC = () => {
         }}
         className="text-foreground hover:opacity-70 transition-opacity"
       >
-        <mask id="theme-toggle-mask">
+        <mask id={maskId}>
           <rect x="0" y="0" width="100%" height="100%" fill="white" />
           <AnimatedCircle
             style={{
@@ -191,7 +197,7 @@ export const ThemeToggle: React.FC = () => {
             r: centerCircleProps.r,
           }}
           fill="currentColor"
-          mask="url(#theme-toggle-mask)"
+          mask={`url(#${maskId})`}
         />
         <AnimatedG
           stroke="currentColor"
