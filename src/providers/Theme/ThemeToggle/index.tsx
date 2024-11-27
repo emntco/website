@@ -62,7 +62,7 @@ interface ThemeToggleProps {
 const properties = {
   dark: {
     circle: {
-      r: 9,
+      r: 8,
     },
     mask: {
       cx: '50%',
@@ -77,7 +77,7 @@ const properties = {
   },
   light: {
     circle: {
-      r: 5,
+      r: 4,
     },
     mask: {
       cx: '100%',
@@ -162,8 +162,8 @@ export const ThemeToggle: React.FC<ThemeToggleProps> = ({
     <div className="relative">
       <AnimatedSvg
         xmlns="http://www.w3.org/2000/svg"
-        width="24"
-        height="24"
+        width="20"
+        height="20"
         viewBox="0 0 24 24"
         fill="none"
         strokeWidth="2"
@@ -185,7 +185,7 @@ export const ThemeToggle: React.FC<ThemeToggleProps> = ({
               cx: maskedCircleProps.cx,
               cy: maskedCircleProps.cy,
             }}
-            r="9"
+            r="8"
             fill="black"
           />
         </mask>

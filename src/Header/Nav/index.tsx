@@ -23,6 +23,11 @@ export const HeaderNav: React.FC<{ header: HeaderType }> = ({ header }) => {
     }
   }, [isMobileMenuOpen])
 
+  // Handle mobile link clicks
+  const handleMobileLinkClick = () => {
+    setIsMobileMenuOpen(false)
+  }
+
   return (
     <>
       {/* Desktop Navigation */}
@@ -34,7 +39,7 @@ export const HeaderNav: React.FC<{ header: HeaderType }> = ({ header }) => {
           <span className="sr-only">Search</span>
           <SearchIcon className="w-5 text-primary" />
         </Link>
-        {/* <ThemeToggle maskId="theme-toggle-mask-desktop" /> */}
+        <ThemeToggle maskId="theme-toggle-mask-desktop" />
       </nav>
 
       {/* Mobile Navigation */}
@@ -50,15 +55,16 @@ export const HeaderNav: React.FC<{ header: HeaderType }> = ({ header }) => {
         >
           <MenuIcon className="w-5 text-primary" />
         </button>
-        {/* <ThemeToggle maskId="theme-toggle-mask-mobile" /> */}
+        <ThemeToggle maskId="theme-toggle-mask-mobile" />
       </nav>
 
       {/* Mobile Menu Overlay */}
       {isMobileMenuOpen && (
         <div 
           className="fixed inset-0 z-50 bg-background md:hidden animate-in fade-in duration-200"
+          onClick={handleMobileLinkClick} // Close menu when clicking the overlay
         >
-          <div className="container">
+          <div className="container" onClick={e => e.stopPropagation()}>
             <div className="py-4 flex justify-end">
               <button 
                 onClick={() => setIsMobileMenuOpen(false)}
@@ -69,17 +75,15 @@ export const HeaderNav: React.FC<{ header: HeaderType }> = ({ header }) => {
               </button>
             </div>
             <div className="flex flex-col space-y-4">
-              {navItems.map(({ link }, i) => {
-                return (
+              {navItems.map(({ link }, i) => (
+                <div key={i} onClick={handleMobileLinkClick}>
                   <CMSLink 
-                    key={i} 
                     {...link} 
                     appearance="link" 
                     className="text-xl py-2"
-                    onClick={() => setIsMobileMenuOpen(false)}
                   />
-                )
-              })}
+                </div>
+              ))}
             </div>
           </div>
         </div>
