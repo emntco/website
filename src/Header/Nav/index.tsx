@@ -35,15 +35,16 @@ export const HeaderNav: React.FC<{ header: HeaderType }> = ({ header }) => {
         {navItems.map(({ link }, i) => {
           return <CMSLink key={i} {...link} appearance="link" className="text-lg" />
         })}
+        <ThemeToggle maskId="theme-toggle-mask-desktop" />
         <Link href="/search">
           <span className="sr-only">Search</span>
           <SearchIcon className="w-5 text-primary" />
         </Link>
-        <ThemeToggle maskId="theme-toggle-mask-desktop" />
       </nav>
 
       {/* Mobile Navigation */}
       <nav className="flex md:hidden items-center gap-2">
+        <ThemeToggle maskId="theme-toggle-mask-mobile" />
         <Link href="/search" className="p-2">
           <span className="sr-only">Search</span>
           <SearchIcon className="w-5 text-primary" />
@@ -55,7 +56,6 @@ export const HeaderNav: React.FC<{ header: HeaderType }> = ({ header }) => {
         >
           <MenuIcon className="w-5 text-primary" />
         </button>
-        <ThemeToggle maskId="theme-toggle-mask-mobile" />
       </nav>
 
       {/* Mobile Menu Overlay */}
