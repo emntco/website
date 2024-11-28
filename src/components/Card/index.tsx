@@ -70,11 +70,11 @@ export const Card: React.FC<{
         )}
         {titleToUse && (
           <div className="prose">
-            <h3>
+            <h2>
               <Link className="not-prose" href={href} ref={link.ref}>
                 {titleToUse}
               </Link>
-            </h3>
+            </h2>
           </div>
         )}
         {description && <div className="mt-2">{description && <p>{sanitizedDescription}</p>}</div>}
