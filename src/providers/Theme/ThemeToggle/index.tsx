@@ -159,7 +159,7 @@ export const ThemeToggle: React.FC<ThemeToggleProps> = ({
   }
 
   return (
-    <div className="relative">
+    <div className="p-2">
       <AnimatedSvg
         xmlns="http://www.w3.org/2000/svg"
         width="20"
