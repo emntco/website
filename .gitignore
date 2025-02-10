@@ -8,6 +8,3 @@ node_modules
 .vercel
 public/media/
 .env.sentry-build-plugin
-sentry.client.config.ts
-sentry.edge.config.ts
-sentry.server.config.ts
